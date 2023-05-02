@@ -188,9 +188,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 const fetchCurrencyRates = async () => {
   try {
     const response = await fetch(
-      // `https://api.currencyfreaks.com/v2.0/rates/latest?apikey=9440e95e09e343caafebc6840ce9a74f&symbols=${symbols.join(
-      //   ","
-      // )}`
+      
       `https://api.exchangerate.host/latest?base=${globalCurrencyTo}`
     );
 
@@ -214,10 +212,6 @@ chrome.tabs.onCreated.addListener((tab) => {
   }
 });
 
-// chrome.tabs.onCreated.addListener((tab) => {
-//   if (!tab.url) {
-//     fetchCurrencyRates();
-//   }
-// });
+
 
 
