@@ -1,0 +1,12 @@
+.selection_bubble {
+  visibility: hidden;
+  position: absolute;
+  padding: 2pt 6pt;
+  font-size: 12pt;
+  color: white;
+  border-radius: 0.5rem;
+  top: 0;
+  left: 0;
+  z-index: 2147483647;
+  background: #6676ce;
+}

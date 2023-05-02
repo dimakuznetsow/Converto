@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Converto",
+    "author": "Dmitry Kuznetsov",
+    "description": "Convert amounts by highlithing the text",
+    "icons": {
+        "16": "src/assets/16.png",
+        "48":"src/assets/48.png",
+        "128": "src/assets/128.png"
+    },
+    "version": "0.0.1",
+    "action": { "default_popup": "index.html", "default_title": "Settings" },
+    "background": {
+        "service_worker": "background.ts",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["contentScript.ts"]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://*/",
+        "http://*/",
+        "https://api.currencyfreaks.com/"
+    ]
+  }
