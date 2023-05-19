@@ -167,13 +167,13 @@ type CurrencyCode =
   | "ZMW"
   | "ZWL";
 
-interface Props {}
+interface Props { }
 
 function App(props: Props) {
   const [currencyTo, setCurrencyTo] = useState<CurrencyCode>();
   const [units, setUnits] = useState<string>();
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     chrome.storage.local.get(["units", "currencyTo"], (result) => {
       if (result.units) {
@@ -191,10 +191,10 @@ function App(props: Props) {
       setLoading(false);
     });
   }, []);
-  
-  
-  
-  
+
+
+
+
 
   const toggleSwitch = () => {
     setUnits(units === "metric" ? "imperial" : "metric");
@@ -389,7 +389,7 @@ function App(props: Props) {
 
   return (
     <div className="App">
-      <h1>Convert to</h1>
+      <h1 className="title">Converts to</h1>
       {/* <h2>Units:</h2>
       <div className="headers">
         <input
@@ -414,7 +414,8 @@ function App(props: Props) {
           <img src="src/assets/help.png" alt="help" width="20px" />
         </div>
       </div> */}
-      <h2>Currency:</h2>
+      <h2 className="header">Currency:</h2>
+      <h3 className="info">Choose currency to convert.</h3>
       <div className="card">
         <select value={currencyTo} onChange={handleCurrencyTo}>
           {currencies.map((currency) => (
@@ -424,8 +425,8 @@ function App(props: Props) {
           ))}
         </select>
       </div>
-        <h2>Units:</h2>
-        <h3>mph to km/h, oz to ml, °F to °C, ft to m, and in to cm + backwards</h3>
+      <h2 className="header">Units:</h2>
+      <h3 className="info">mph to km/h, oz to ml, °F to °C, ft to m, and in to cm + backwards</h3>
     </div>
   );
 }

@@ -182,18 +182,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   
   fetchCurrencyRates();
-  console.log("Received message from popup:", units, currencyTo);
+  console.log("Received message from popup:", currencyTo);
 });
 
 const fetchCurrencyRates = async () => {
   try {
     const response = await fetch(
       
-      `https://api.exchangerate.host/latest?base=${globalCurrencyTo}`
+      `https://api.exchangerate.host/latest?base=${globalCurrencyTo}&timestamp=${Date.now()}`
     );
 
     const data = await response.json();
-    console.log(globalCurrencyTo)
+    
     console.log(data)
     chrome.storage.local.set(
       { key: data, extensionName: "Converto" },

@@ -8,7 +8,7 @@
         "48":"src/assets/48.png",
         "128": "src/assets/128.png"
     },
-    "version": "0.0.1",
+    "version": "0.0.3",
     "action": { "default_popup": "index.html", "default_title": "Settings" },
     "background": {
         "service_worker": "background.ts",
@@ -21,7 +21,6 @@
         }
     ],
     "permissions": [
-        "activeTab",
         "storage"
     ],
     "host_permissions": [
